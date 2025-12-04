@@ -1,5 +1,97 @@
 <!doctype html>
 <html lang="ko">
-<head><meta charset="utf-8"><title>광천교회</title></head>
-<body>광천교회 PWA 준비 중입니다.</body>
+<head>
+  <meta charset="utf-8" />
+  <title>거룩한빛 맑은샘 광천교회</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#3f51b5" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <style>
+    body { margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:#f4f4f4; }
+    header { background:#3f51b5; color:#fff; padding:16px; }
+    h1 { font-size:20px; margin:0 0 4px; }
+    .subtitle { font-size:13px; opacity:.9; }
+    main { padding:16px; }
+    .card { background:#fff; border-radius:8px; padding:12px 14px; margin-bottom:12px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+    .card h2 { font-size:16px; margin:0 0 6px; }
+    .time-row { font-size:13px; line-height:1.5; }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:8px; }
+    .tile { background:#fff; border-radius:10px; padding:14px 10px; text-align:center; font-size:14px; font-weight:600; color:#333;
+            box-shadow:0 1px 3px rgba(0,0,0,.08); text-decoration:none; }
+    .tile span { display:block; margin-top:4px; font-size:12px; font-weight:400; color:#666; }
+    footer { text-align:center; font-size:11px; color:#777; padding:10px 0 16px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>거룩한빛 맑은샘 광천교회</h1>
+  <div class="subtitle">경기도 파주시 파주읍 학골길 7 · 031-954-0806</div>
+  <div class="subtitle">담임목사: 이대성</div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>예배 안내</h2>
+    <div class="time-row">주일 오전예배: 오전 10:30</div>
+    <div class="time-row">주일 오후예배: 오후 2:00</div>
+    <div class="time-row">금요 저녁기도회: 저녁 8:20</div>
+    <div class="time-row">새벽 기도회: 새벽 5:00</div>
+    <div class="time-row" style="margin-top:6px; color:#3f51b5;">
+      예배 전 10분 먼저 오셔서 묵상과 기도로 예배를 준비해 주세요.
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>메인 메뉴</h2>
+    <div class="grid">
+      <!-- 아래 href 자리에 네이버 카페/유튜브 실제 주소를 나중에 넣으시면 됩니다 -->
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        예배 안내
+        <span>예배 시간 및 안내</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        공지사항
+        <span>전교인 공지</span>
+      </a>
+      <a class="tile" href="https://youtube.com" target="_blank" rel="noopener">
+        금주의 설교
+        <span>영상 다시보기</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        사역팀 커뮤니티
+        <span>바나바·안나·루디아·다니엘·사무엘</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        중보기도방
+        <span>기도 제목 나눔</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        교회 앨범
+        <span>사진 모음</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        행복한 한 줄
+        <span>감사·간증 나눔</span>
+      </a>
+      <a class="tile" href="https://cafe.naver.com" target="_blank" rel="noopener">
+        교회 소개
+        <span>비전·장소·연락처</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 거룩한빛 맑은샘 광천교회
+</footer>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+    });
+  }
+</script>
+</body>
 </html>
