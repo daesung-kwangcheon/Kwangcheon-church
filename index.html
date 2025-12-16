@@ -7,8 +7,40 @@
   <meta name="theme-color" content="#3f51b5" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
-  <style>
-        .group-label {
+   <style>
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:#f4f4f4;
+      font-size:16px;
+    }
+    header { background:#3f51b5; color:#fff; padding:16px; }
+    h1 { font-size:22px; margin:0 0 4px; }
+    .subtitle { font-size:13px; opacity:.9; }
+    main { padding:16px; }
+    .card { background:#fff; border-radius:8px; padding:12px 14px; margin-bottom:12px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
+    .card h2 { font-size:18px; margin:0 0 6px; }
+    .time-row { font-size:15px; line-height:1.6; }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:8px; }
+    .tile {
+      background:#fff;
+      border-radius:10px;
+      padding:14px 10px;
+      text-align:center;
+      font-size:16px;
+      font-weight:600;
+      color:#333;
+      box-shadow:0 1px 3px rgba(0,0,0,.08);
+      text-decoration:none;
+    }
+    .tile span {
+      display:block;
+      margin-top:4px;
+      font-size:13px;
+      font-weight:400;
+      color:#666;
+    }
+    .group-label {
       grid-column: 1 / -1;
       font-size: 12px;
       font-weight: 600;
@@ -22,35 +54,13 @@
       border-top: none;
       margin-top: 0;
     }
-    body {
-  margin:0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:#f4f4f4;
-  font-size:16px;            /* 기본 글씨 조금 키우기 */
-}
-
-h1 { font-size:22px; margin:0 0 4px; }
-.card h2 { font-size:18px; margin:0 0 6px; }
-.time-row { font-size:15px; line-height:1.6; }
-
-.tile {
-  /* ... 기존 내용 그대로 두고 */
-  font-size:16px;            /* 버튼 큰 글자 */
-}
-
-.tile span {
-  display:block;
-  margin-top:4px;
-  font-size:13px;            /* 작은 설명 글자 */
-  font-weight:400;
-  color:#666;
-}
     footer { text-align:center; font-size:11px; color:#777; padding:10px 0 16px; }
+
     @media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;   /* 화면이 좁을 때는 한 줄에 하나 */
-  }
-}
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -78,7 +88,6 @@ h1 { font-size:22px; margin:0 0 4px; }
 
   <section class="card">
     <h2>메인 메뉴</h2>
-    <div class="grid">
     <div class="grid">
       <!-- 1) 예배/공지/설교 -->
       <div class="group-label">예배 및 공지</div>
