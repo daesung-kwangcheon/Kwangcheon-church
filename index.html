@@ -27,34 +27,37 @@
   }
 
   /* 메인 메뉴 제목: 색만 바꿔서 강조 */
-  .card h2 {
-    font-size:19px;
-    margin:0 0 6px;
-    color:#2c3e50;   /* 진한 남색 계열 */
-  }
-
-  .time-row { font-size:15px; line-height:1.6; }
-
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0,1fr));
-    gap:10px;
-    margin-top:8px;
-  }
-
+.card h2 {
+  font-size:19px;
+  margin:0 0 4px;   /* 6 → 4로 살짝 줄이기 */
+  color:#2c3e50;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:12px;         /* 10 → 12로, 타일 사이 조금 더 띄우기 */
+  margin-top:6px;   /* 8 → 6으로 줄여서 제목과 적당히 붙이기 */
+}
+     
   /* 버튼(예배 안내, 공지사항 등) 글씨 */
-  .tile {
-    background:#fff;
-    border-radius:10px;
-    padding:14px 10px;
-    text-align:center;
-    font-size:15px;      /* 메인메뉴보다 살짝 작게 */
-    font-weight:600;
-    color:#333;
-    box-shadow:0 1px 3px rgba(0,0,0,.08);
-    text-decoration:none;
-  }
+ .tile {
+  background:#fff;
+  border-radius:14px;                           /* 모서리 더 둥글게 */
+  padding:14px 12px;
+  text-align:center;
+  font-size:15px;
+  font-weight:600;
+  color:#333;
+  box-shadow:0 1px 4px rgba(0,0,0,.10);        /* 그림자 약간 강화 */
+  text-decoration:none;
+  transition:transform .08s ease, box-shadow .08s ease;
+}
 
+.tile:active {
+  transform:scale(0.97);                       /* 눌렀을 때 살짝 들어가는 느낌 */
+  box-shadow:0 0 0 rgba(0,0,0,0.1);
+}
+     
   .tile span {
     display:block;
     margin-top:4px;
@@ -64,18 +67,18 @@
   }
 
   /* 그룹 제목(예배 및 공지, 사역팀 커뮤니티 등) */
-  .group-label {
-    grid-column: 1 / -1;
-    font-size:16px;          /* 예배안내 정도 크기 */
-    font-weight:700;
-    color:#d4af37;           /* 골드색 (#d4af37) */
-    margin-top:8px;
-    margin-bottom:4px;
-    padding-top:6px;
-    border-top:1px solid #e0e0e0;
-  }
-
-  .group-label:first-child {
+.group-label {
+  grid-column:1 / -1;
+  font-size:16px;
+  font-weight:700;
+  color:#d4af37;
+  margin-top:10px;       /* 8 → 10, 그룹 간 경계 조금 더 */
+  margin-bottom:2px;     /* 4 → 2, 라벨 바로 아래 타일이 붙게 */
+  padding-top:6px;
+  border-top:1px solid #e0e0e0;
+}
+ 
+.group-label:first-child {
     border-top: none;
     margin-top: 0;
   }
