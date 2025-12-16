@@ -8,60 +8,94 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
    <style>
-    body {
-      margin:0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#f4f4f4;
-      font-size:16px;
-    }
-    header { background:#3f51b5; color:#fff; padding:16px; }
-    h1 { font-size:22px; margin:0 0 4px; }
-    .subtitle { font-size:13px; opacity:.9; }
-    main { padding:16px; }
-    .card { background:#fff; border-radius:8px; padding:12px 14px; margin-bottom:12px; box-shadow:0 1px 3px rgba(0,0,0,.08); }
-    .card h2 { font-size:18px; margin:0 0 6px; }
-    .time-row { font-size:15px; line-height:1.6; }
-    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; margin-top:8px; }
-    .tile {
-      background:#fff;
-      border-radius:10px;
-      padding:14px 10px;
-      text-align:center;
-      font-size:16px;
-      font-weight:600;
-      color:#333;
-      box-shadow:0 1px 3px rgba(0,0,0,.08);
-      text-decoration:none;
-    }
-    .tile span {
-      display:block;
-      margin-top:4px;
-      font-size:13px;
-      font-weight:400;
-      color:#666;
-    }
-    .group-label {
-      grid-column: 1 / -1;
-      font-size: 12px;
-      font-weight: 600;
-      color: #888;
-      margin-top: 6px;
-      margin-bottom: 2px;
-      padding-top: 4px;
-      border-top: 1px solid #e0e0e0;
-    }
-    .group-label:first-child {
-      border-top: none;
-      margin-top: 0;
-    }
-    footer { text-align:center; font-size:11px; color:#777; padding:10px 0 16px; }
+  body {
+    margin:0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background:#f4f4f4;
+    font-size:16px;
+  }
 
-    @media (max-width: 600px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+  header { background:#3f51b5; color:#fff; padding:16px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .subtitle { font-size:13px; opacity:.9; }
+
+  main { padding:16px; }
+
+  .card {
+    background:#fff;
+    border-radius:8px;
+    padding:12px 14px;
+    margin-bottom:12px;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+  }
+
+  /* 메인 메뉴 제목: 색만 바꿔서 강조 */
+  .card h2 {
+    font-size:19px;
+    margin:0 0 6px;
+    color:#2c3e50;   /* 진한 남색 계열 */
+  }
+
+  .time-row { font-size:15px; line-height:1.6; }
+
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:10px;
+    margin-top:8px;
+  }
+
+  /* 버튼(예배 안내, 공지사항 등) 글씨 */
+  .tile {
+    background:#fff;
+    border-radius:10px;
+    padding:14px 10px;
+    text-align:center;
+    font-size:15px;      /* 메인메뉴보다 살짝 작게 */
+    font-weight:600;
+    color:#333;
+    box-shadow:0 1px 3px rgba(0,0,0,.08);
+    text-decoration:none;
+  }
+
+  .tile span {
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+    font-weight:400;
+    color:#666;
+  }
+
+  /* 그룹 제목(예배 및 공지, 사역팀 커뮤니티 등) */
+  .group-label {
+    grid-column: 1 / -1;
+    font-size:16px;          /* 예배안내 정도 크기 */
+    font-weight:700;
+    color:#d4af37;           /* 골드색 (#d4af37) */
+    margin-top:8px;
+    margin-bottom:4px;
+    padding-top:6px;
+    border-top:1px solid #e0e0e0;
+  }
+
+  .group-label:first-child {
+    border-top: none;
+    margin-top: 0;
+  }
+
+  footer {
+    text-align:center;
+    font-size:11px;
+    color:#777;
+    padding:10px 0 16px;
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 <header>
