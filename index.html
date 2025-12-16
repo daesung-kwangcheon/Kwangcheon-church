@@ -46,6 +46,11 @@ h1 { font-size:22px; margin:0 0 4px; }
   color:#666;
 }
     footer { text-align:center; font-size:11px; color:#777; padding:10px 0 16px; }
+    @media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;   /* 화면이 좁을 때는 한 줄에 하나 */
+  }
+}
   </style>
 </head>
 <body>
