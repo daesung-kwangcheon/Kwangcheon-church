@@ -151,6 +151,27 @@
 .group-intro {
   background:#f3e5f5;   /* 교회 소개 및 나눔 - 연한 보라 */
 } 
+    /* 타일 안 작은 컬러 점 */
+.tile {
+  position:relative;
+  padding-top:16px;
+}
+
+.tile-dot {
+  position:absolute;
+  top:8px;
+  left:12px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+}
+
+/* 하위 항목 색 (그룹별) */
+.tile-worship  .tile-dot { background:#ffb74d; }  /* 주황톤 */
+.tile-ministry .tile-dot { background:#81c784; }  /* 연두톤 */
+.tile-praise   .tile-dot { background:#64b5f6; }  /* 파랑톤 */
+.tile-prayer   .tile-dot { background:#f06292; }  /* 분홍톤 */
+.tile-intro    .tile-dot { background:#ba68c8; }  /* 보라톤 */
 </style>
 </head>
 <body>
