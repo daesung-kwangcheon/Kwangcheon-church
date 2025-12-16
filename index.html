@@ -11,73 +11,110 @@
   body {
     margin:0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background:#faf7f0 url("images/altar-bg.jpg") no-repeat center top;
-    background-size:cover;
-    background-attachment:fixed;   /* 스크롤해도 배경은 고정 */
+    background:#faf7f0;                 /* 복잡하면 배경 이미지는 잠시 빼고 */
     font-size:16px;
   }
 
-  /* 카드 배경은 흰색 유지해서 글자는 또렷하게 */
+  /* 카드 배경(예배 안내, 메인 메뉴) */
   .card {
-    background:rgba(255,255,255,0.92);
+    background:rgba(255,255,255,0.95);
     border-radius:8px;
     padding:12px 14px;
     margin-bottom:8px;
     box-shadow:0 1px 3px rgba(0,0,0,.08);
   }
 
-  /* 메인 메뉴 제목: 색만 바꿔서 강조 */
-.card h2 {
-  font-size:19px;
-  margin:0 0 4px;   /* 6 → 4로 살짝 줄이기 */
-  color:#2c3e50;
-}
-.grid {
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:12px;         /* 10 → 12로, 타일 사이 조금 더 띄우기 */
-  margin-top:6px;   /* 8 → 6으로 줄여서 제목과 적당히 붙이기 */
-}
-     
-  /* 버튼(예배 안내, 공지사항 등) 글씨 */
-.tile {
-  background:#fff;
-  border-radius:14px;
-  padding:16px 12px;
-  text-align:center;
-  font-size:15px;
-  font-weight:600;
-  color:#333;
+  /* 메인 메뉴 제목 */
+  .card h2 {
+    font-size:19px;
+    margin:0 0 4px;
+    color:#2c3e50;
+  }
 
-  border:1px solid rgba(0,0,0,0.04);                 /* 테두리 살짝만 진하게 */
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.10),
-    0 4px 10px rgba(0,0,0,0.06);                     /* 윤곽이 또렷한 카드 그림자 */
+  .time-row { font-size:15px; line-height:1.6; }
 
-  text-decoration:none;
-  transition:transform .08s ease, box-shadow .08s ease;
-}
+  /* 메인 메뉴 그리드 */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:12px;
+    margin-top:6px;
+  }
 
-.tile:active {
-  transform:scale(0.97);
-  box-shadow:0 0 0 rgba(0,0,0,0.15);
-}
+  /* 타일(각 메뉴 버튼) + 색 점까지 포함 */
+  .tile {
+    position:relative;
+    background:#fff;
+    border-radius:14px;
+    padding:16px 12px;
+    padding-top:20px;            /* 위쪽에 점 들어갈 공간 */
+    text-align:center;
+    font-size:15px;
+    font-weight:600;
+    color:#333;
 
-  /* 그룹 제목(예배 및 공지, 사역팀 커뮤니티 등) */
-.group-label {
-  grid-column:1 / -1;
-  font-size:16px;
-  font-weight:700;
-  color:#d4af37;
-  margin-top:10px;       /* 8 → 10, 그룹 간 경계 조금 더 */
-  margin-bottom:2px;     /* 4 → 2, 라벨 바로 아래 타일이 붙게 */
-  padding-top:6px;
-  border-top:1px solid #e0e0e0;
-}
- 
-.group-label:first-child {
-    border-top: none;
-    margin-top: 0;
+    border:1px solid rgba(0,0,0,0.04);
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.10),
+      0 4px 10px rgba(0,0,0,0.06);
+
+    text-decoration:none;
+    transition:transform .08s ease, box-shadow .08s ease;
+  }
+
+  .tile span {
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+    font-weight:400;
+    color:#666;
+  }
+
+  .tile:active {
+    transform:scale(0.97);
+    box-shadow:0 0 0 rgba(0,0,0,0.15);
+  }
+
+  /* 타일 안 작은 컬러 점 공통 모양 */
+  .tile-dot {
+    position:absolute;
+    top:8px;
+    left:12px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+  }
+
+  /* 하위 항목 색 (그룹별) */
+  .tile-worship  .tile-dot { background:#ffb74d; }  /* 예배/공지 – 주황 파스텔 */
+  .tile-ministry .tile-dot { background:#81c784; }  /* 사역팀 – 연두 */
+  .tile-praise   .tile-dot { background:#64b5f6; }  /* 찬양팀 – 파랑 */
+  .tile-prayer   .tile-dot { background:#f06292; }  /* 기도 – 분홍 */
+  .tile-intro    .tile-dot { background:#ba68c8; }  /* 소개 – 보라 */
+
+  /* 그룹 라벨 기본 모양 */
+  .group-label {
+    grid-column: 1 / -1;
+    font-size:16px;
+    font-weight:700;
+    color:#d4af37;
+    margin-top:10px;
+    margin-bottom:4px;
+    padding:6px 10px;
+    border-top:1px solid #e0e0e0;
+    border-radius:8px;
+  }
+
+  /* 그룹별 파스텔톤 배경색 */
+  .group-worship { background:#fff8e1; }  /* 예배 및 공지 - 연한 노랑 */
+  .group-ministry { background:#e8f5e9; } /* 사역팀 - 연한 초록 */
+  .group-praise { background:#e3f2fd; }   /* 찬양팀 - 연한 파랑 */
+  .group-prayer { background:#fce4ec; }   /* 기도 - 연한 분홍 */
+  .group-intro { background:#f3e5f5; }    /* 소개 - 연한 보라 */
+
+  .group-label:first-child {
+    border-top:none;
+    margin-top:0;
   }
 
   footer {
@@ -93,85 +130,12 @@
     }
   }
 
-  /* 여기서부터 배너(십자가 + 문구) 스타일 */
-.hero-image {
-  margin-top:10px;
-  height:80px;   /* 120 → 110 */
-  border-radius:8px;
-  background:linear-gradient(135deg, #3f51b5, #2196f3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-  .hero-overlay {
-    display:flex;
-    align-items:center;
-    gap:8px;
-    color:#fff;
-  }
-
-  .hero-icon {
-    font-size:26px;
-  }
-
-  .hero-text {
-  font-size:24px;   /* 15 → 16 */
-  font-weight:600;
-}
-    /* 그룹 라벨 기본 모양 */
-.group-label {
-  grid-column: 1 / -1;
-  font-size:16px;
-  font-weight:700;
-  color:#d4af37;
-  margin-top:10px;
-  margin-bottom:4px;
-  padding:6px 10px;
-  border-top:1px solid #e0e0e0;
-  border-radius:8px;
-}
-
-/* 여기부터 그룹별 파스텔톤 배경색 */
-.group-worship {
-  background:#fff8e1;   /* 예배 및 공지 - 연한 노랑 */
-}
-
-.group-ministry {
-  background:#e8f5e9;   /* 사역팀 커뮤니티 - 연한 초록 */
-}
-
-.group-praise {
-  background:#e3f2fd;   /* 찬양팀 커뮤니티 - 연한 파랑 */
-}
-
-.group-prayer {
-  background:#fce4ec;   /* 기도의 향기 - 연한 분홍 */
-}
-
-.group-intro {
-  background:#f3e5f5;   /* 교회 소개 및 나눔 - 연한 보라 */
-} 
-    /* 타일 안 작은 컬러 점 */
-.tile {
-  position:relative;
-  padding-top:16px;
-}
-
-.tile-dot {
-  position:absolute;
-  top:8px;
-  left:12px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-}
-
-/* 하위 항목 색 (그룹별) */
-.tile-worship  .tile-dot { background:#ffb74d; }  /* 주황톤 */
-.tile-ministry .tile-dot { background:#81c784; }  /* 연두톤 */
-.tile-praise   .tile-dot { background:#64b5f6; }  /* 파랑톤 */
-.tile-prayer   .tile-dot { background:#f06292; }  /* 분홍톤 */
-.tile-intro    .tile-dot { background:#ba68c8; }  /* 보라톤 */
+  /* 상단 배너(십자가 + 문구) */
+  .hero-image {
+    margin-top:10px;
+    height:80px;
+    border-radius:8px;
+    background:linear-gradient(135deg, #3f51b5, #219
 </style>
 </head>
 <body>
@@ -210,13 +174,17 @@
       <!-- 1) 예배/공지/설교 -->
       <div class="group-label group-worship">예배 및 공지</div>
       <a class="tile tile-worship" href="https://cafe.naver.com/f-e/cafes/31618113/menus/2?viewType=L" target="_blank" rel="noopener">
-      <span>예배 시간 및 안내</span>
+       <span class="tile-dot"></span>
+        예배 안내
+        <span>시간 및 안내</span>
       </a>
       <a class="tile tile-worship" href="https://cafe.naver.com/f-e/cafes/31618113/menus/3" target="_blank" rel="noopener">
+     <span class="tile-dot"></span>    
         공지사항
         <span>(전체)</span>
       </a>
       <a class="tile" href="https://cafe.naver.com/f-e/cafes/31618113/menus/4" target="_blank" rel="noopener">
+        <span class="tile-dot"></span>     
         금주의 설교
         <span>(영상 다시보기)</span>
       </a>
@@ -224,22 +192,27 @@
       <!-- 2) 사역팀 커뮤니티 -->
       <div class="group-label group-ministry">사역팀 커뮤니티</div>
       <a class="tile tile-ministry" href="https://cafe.naver.com/f-e/cafes/31618113/menus/21" target="_blank" rel="noopener">
+       <span class="tile-dot"></span>      
         바나바 
         <span>(남집사) 사역팀</span>
       </a>
       <a class="tile tile-ministry" href="https://cafe.naver.com/f-e/cafes/31618113/menus/7" target="_blank" rel="noopener">
+   <span class="tile-dot"></span>  
         안나 
         <span>(권사) 사역팀</span>
       </a>
       <a class="tile tile-ministry" href="https://cafe.naver.com/f-e/cafes/31618113/menus/8" target="_blank" rel="noopener">
+   <span class="tile-dot"></span>  
         루디아 
         <span>(여집사)  사역팀</span>
       </a>
       <a class="tile tile-ministry" href="https://cafe.naver.com/f-e/cafes/31618113/menus/9" target="_blank" rel="noopener">
+   <span class="tile-dot"></span>  
         다니엘 
         <span>(중고청년) 사역팀</span>
       </a>
       <a class="tile tile-ministry" href="https://cafe.naver.com/f-e/cafes/31618113/menus/10" target="_blank" rel="noopener">
+   <span class="tile-dot"></span> 
         사무엘 
         <span>(주일학교) 사역팀</span>
       </a>
@@ -247,35 +220,51 @@
       <!-- 3) 찬양팀 커뮤니티 -->
       <div class="group-label group-praise">찬양팀 커뮤니티</div>
       <a class="tile  tile-praise" href="https://cafe.naver.com/f-e/cafes/31618113/menus/12" target="_blank" rel="noopener">
-       <span>주일오전찬양 사역팀</span>
+  <span class="tile-dot"></span> 
+        주일오전
+        <span>찬양 사역팀</span>
       </a>
       <a class="tile  tile-praise" href="https://cafe.naver.com/f-e/cafes/31618113/menus/13" target="_blank" rel="noopener">
-       <span>주일오후찬양 사역팀</span>
+  <span class="tile-dot"></span> 
+        주일오후
+        <span>찬양 사역팀</span>
       </a>
       <a class="tile  tile-praise" href="https://cafe.naver.com/f-e/cafes/31618113/menus/14" target="_blank" rel="noopener">
-       <span>금요저녁기도회 사역팀</span>
+  <span class="tile-dot"></span> 
+        금요저녁
+        <span>찬양 사역팀</span>
       </a>
 
       <!-- 4) 기도의 향기 -->
       <div class="group-label group-prayer">기도의 향기</div>
       <a class="tile tile-prayer" href="https://cafe.naver.com/f-e/cafes/31618113/menus/16" target="_blank" rel="noopener">
-        <span>기도(중보) 제목 나눔</span>
+  <span class="tile-dot"></span> 
+        중보기도
+        <span>제목 나눔</span>
       </a>
       <a class="tile tile-prayer" href="https://cafe.naver.com/f-e/cafes/31618113/menus/20" target="_blank" rel="noopener">
-        <span>행복한 이야기 한 줄(감사·간증)</span>
+  <span class="tile-dot"></span> 
+        행복한 이야기 한 줄
+        <span>(감사·간증)</span>
       </a>
 
       <!-- 5) 교회 소개 및 나눔 -->
       <div class="group-label group-intro">교회 소개 및 나눔</div>
       <a class="tile tile-intro" href="https://cafe.naver.com/f-e/cafes/31618113/menus/18" target="_blank" rel="noopener">
-       <span>우리 교회 소개</span>
+     <span class="tile-dot"></span> 
+        교회 소개
+        <span>(장소,주소)</span>
       </a>
       <a class="tile tile-intro" href="https://cafe.naver.com/f-e/cafes/31618113/menus/19" target="_blank" rel="noopener">
-        <span>교회 앨범</span>
+  <span class="tile-dot"></span> 
+        교회 앨범
+        <span>(사진모음)</span>
       </a>
       <a class="tile tile-intro" href="https://cafe.naver.com/f-e/cafes/31618113/menus/1" target="_blank" rel="noopener">
-        <span>자유 게시판</span>
-      </a>
+  <span class="tile-dot"></span> 
+         자유게시판
+        <span>(나눔 공간)</span>
+         </a>
     </div>
   </section>
 </main>
