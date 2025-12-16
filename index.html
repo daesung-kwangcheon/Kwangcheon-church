@@ -11,11 +11,11 @@
   body {
     margin:0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background:#faf7f0;                 /* 복잡하면 배경 이미지는 잠시 빼고 */
+    background:#faf7f0;
     font-size:16px;
   }
 
-  /* 카드 배경(예배 안내, 메인 메뉴) */
+  /* 카드(예배 안내, 메인 메뉴) */
   .card {
     background:rgba(255,255,255,0.95);
     border-radius:8px;
@@ -24,14 +24,16 @@
     box-shadow:0 1px 3px rgba(0,0,0,.08);
   }
 
-  /* 메인 메뉴 제목 */
   .card h2 {
     font-size:19px;
     margin:0 0 4px;
     color:#2c3e50;
   }
 
-  .time-row { font-size:15px; line-height:1.6; }
+  .time-row {
+    font-size:15px;
+    line-height:1.6;
+  }
 
   /* 메인 메뉴 그리드 */
   .grid {
@@ -41,23 +43,21 @@
     margin-top:6px;
   }
 
-  /* 타일(각 메뉴 버튼) + 색 점까지 포함 */
+  /* 타일(각 메뉴 버튼) + 색 점 */
   .tile {
     position:relative;
     background:#fff;
     border-radius:14px;
     padding:16px 12px;
-    padding-top:20px;            /* 위쪽에 점 들어갈 공간 */
+    padding-top:20px;   /* 위쪽에 점 들어갈 공간 */
     text-align:center;
     font-size:15px;
     font-weight:600;
     color:#333;
-
     border:1px solid rgba(0,0,0,0.04);
     box-shadow:
       0 2px 4px rgba(0,0,0,0.10),
       0 4px 10px rgba(0,0,0,0.06);
-
     text-decoration:none;
     transition:transform .08s ease, box-shadow .08s ease;
   }
@@ -86,15 +86,15 @@
   }
 
   /* 하위 항목 색 (그룹별) */
-  .tile-worship  .tile-dot { background:#ffb74d; }  /* 예배/공지 – 주황 파스텔 */
-  .tile-ministry .tile-dot { background:#81c784; }  /* 사역팀 – 연두 */
-  .tile-praise   .tile-dot { background:#64b5f6; }  /* 찬양팀 – 파랑 */
-  .tile-prayer   .tile-dot { background:#f06292; }  /* 기도 – 분홍 */
-  .tile-intro    .tile-dot { background:#ba68c8; }  /* 소개 – 보라 */
+  .tile-worship  .tile-dot { background:#ffb74d; }  /* 예배/공지 */
+  .tile-ministry .tile-dot { background:#81c784; }  /* 사역팀 */
+  .tile-praise   .tile-dot { background:#64b5f6; }  /* 찬양팀 */
+  .tile-prayer   .tile-dot { background:#f06292; }  /* 기도 */
+  .tile-intro    .tile-dot { background:#ba68c8; }  /* 소개 */
 
   /* 그룹 라벨 기본 모양 */
   .group-label {
-    grid-column: 1 / -1;
+    grid-column:1 / -1;
     font-size:16px;
     font-weight:700;
     color:#d4af37;
@@ -106,11 +106,11 @@
   }
 
   /* 그룹별 파스텔톤 배경색 */
-  .group-worship { background:#fff8e1; }  /* 예배 및 공지 - 연한 노랑 */
-  .group-ministry { background:#e8f5e9; } /* 사역팀 - 연한 초록 */
-  .group-praise { background:#e3f2fd; }   /* 찬양팀 - 연한 파랑 */
-  .group-prayer { background:#fce4ec; }   /* 기도 - 연한 분홍 */
-  .group-intro { background:#f3e5f5; }    /* 소개 - 연한 보라 */
+  .group-worship { background:#fff8e1; }
+  .group-ministry { background:#e8f5e9; }
+  .group-praise { background:#e3f2fd; }
+  .group-prayer { background:#fce4ec; }
+  .group-intro { background:#f3e5f5; }
 
   .group-label:first-child {
     border-top:none;
@@ -126,7 +126,7 @@
 
   @media (max-width: 600px) {
     .grid {
-      grid-template-columns: 1fr;
+      grid-template-columns:1fr;
     }
   }
 
@@ -135,7 +135,27 @@
     margin-top:10px;
     height:80px;
     border-radius:8px;
-    background:linear-gradient(135deg, #3f51b5, #219
+    background:linear-gradient(135deg, #3f51b5, #2196f3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .hero-overlay {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+  }
+
+  .hero-icon {
+    font-size:26px;
+  }
+
+  .hero-text {
+    font-size:18px;
+    font-weight:600;
+  }
 </style>
 </head>
 <body>
