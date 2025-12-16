@@ -43,16 +43,16 @@
 .tile {
   background:#fff;
   border-radius:14px;
-  padding:14px 12px;
+  padding:16px 12px;
   text-align:center;
   font-size:15px;
   font-weight:600;
   color:#333;
 
-  border:1px solid rgba(0,0,0,0.03);          /* 얇은 테두리 */
+  border:1px solid rgba(0,0,0,0.04);                 /* 테두리 살짝만 진하게 */
   box-shadow:
-    0 1px 2px rgba(0,0,0,0.08),              /* 부드러운 기본 그림자 */
-    0 2px 6px rgba(0,0,0,0.06);              /* 살짝 더 진한 바깥 그림자 */
+    0 2px 4px rgba(0,0,0,0.10),
+    0 4px 10px rgba(0,0,0,0.06);                     /* 윤곽이 또렷한 카드 그림자 */
 
   text-decoration:none;
   transition:transform .08s ease, box-shadow .08s ease;
@@ -60,9 +60,9 @@
 
 .tile:active {
   transform:scale(0.97);
-  box-shadow:0 0 0 rgba(0,0,0,0.1);
+  box-shadow:0 0 0 rgba(0,0,0,0.15);
 }
- 
+
   /* 그룹 제목(예배 및 공지, 사역팀 커뮤니티 등) */
 .group-label {
   grid-column:1 / -1;
